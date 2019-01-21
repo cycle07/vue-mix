@@ -80,16 +80,31 @@
         </a>
       </li>
     </ul>
+    <counter :num="num" v-on:increase="increament" v-on:decrease="decreament"></counter>
+    <p>{{num}}</p>
   </div>
 </template>
 
 <script>
+import Counter from './Counter';
 export default {
   name: 'HelloWorld',
   data () {
     return {
+      num: 10,
       msg: 'Welcome to Your Vue.js App'
     }
+  },
+  methods: {
+    increament() {
+      this.num++
+    },
+    decreament() {
+      this.num--
+    }
+  },
+  components: {
+    Counter
   }
 }
 </script>

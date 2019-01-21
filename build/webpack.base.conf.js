@@ -23,8 +23,8 @@ module.exports = {
       : config.dev.assetsPublicPath
   },
   resolve: {
-    extensions: ['.js', '.vue', '.json'],
-    alias: {
+    extensions: ['.js', '.vue', '.json'], // 这几类文件加载可以不写后缀
+    alias: { // 别名
       'vue$': 'vue/dist/vue.esm.js',
       '@': resolve('src'),
     }
@@ -32,12 +32,12 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.vue$/,
+        test: /\.vue$/, // vue文件通过vue-loader解析
         loader: 'vue-loader',
         options: vueLoaderConfig
       },
       {
-        test: /\.js$/,
+        test: /\.js$/, // ES6解析插件
         loader: 'babel-loader',
         include: [resolve('src'), resolve('test'), resolve('node_modules/webpack-dev-server/client')]
       },
